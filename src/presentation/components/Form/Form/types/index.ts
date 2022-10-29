@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes } from "react";
+import { FormikConfig } from "formik";
 
-export type FormProps = ButtonHTMLAttributes<HTMLFormElement> & {
+export type FormProps = FormikConfig<any> & {
   loading?: boolean;
+  className?: string;
 };
