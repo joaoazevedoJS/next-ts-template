@@ -2,7 +2,7 @@ import { FC, useCallback, useMemo, useState } from "react";
 
 import { useTranslation } from "next-i18next";
 
-import { InitialValues } from "./factory";
+import { InitialValues, ValidationSchema } from "./factory";
 
 import { IFormValues } from "./types";
 
@@ -24,7 +24,7 @@ export const HomeFormExample: FC = () => {
   }, []);
 
   return (
-    <Form initialValues={initialValues} onSubmit={handleLoading}>
+    <Form initialValues={initialValues} onSubmit={handleLoading} validationSchema={ValidationSchema}>
       <Form.Input type="text" name="name" />
 
       <Form.Input type="password" name="password" />
