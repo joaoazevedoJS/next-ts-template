@@ -2,6 +2,8 @@ import { FC, useCallback, useMemo, useState } from "react";
 
 import { useTranslation } from "next-i18next";
 
+import { HttpProvider } from "@/providers/http";
+
 import { InitialValues, ValidationSchema } from "./factory";
 
 import { IFormValues } from "./types";
@@ -15,8 +17,13 @@ export const HomeFormExample: FC = () => {
 
   const initialValues = useMemo(() => InitialValues(), []);
 
-  const handleLoading = useCallback((e: IFormValues) => {
-    console.log(e);
+  const handleLoading = useCallback((data: IFormValues) => {
+    console.log(data);
+
+    HttpProvider.post({
+      url: "/posts",
+      body: data,
+    });
 
     setInLoading(true);
 

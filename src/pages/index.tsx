@@ -4,8 +4,9 @@ import { GetStaticProps } from "next";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import { formLocales } from "@/presentation/locales/components";
 import { HomeContent } from "@/presentation/pages/Home";
+
+import { formLocales, required } from "@/presentation/locales";
 
 const Home: FC = () => (
   <HomeContent>
@@ -16,7 +17,7 @@ const Home: FC = () => (
 );
 
 export const getStaticProps: GetStaticProps = async ({ locale = "en" }) => {
-  const i18n = await serverSideTranslations(locale, ["pages/home", ...formLocales]);
+  const i18n = await serverSideTranslations(locale, ["pages/home", ...required, ...formLocales]);
 
   return {
     props: {
