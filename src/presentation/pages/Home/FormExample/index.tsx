@@ -1,5 +1,7 @@
 import { FC, useCallback, useMemo, useState } from "react";
 
+import { toast } from "react-toastify";
+
 import { useTranslation } from "next-i18next";
 
 import { Authentication } from "@/data";
@@ -22,8 +24,10 @@ export const HomeFormExample: FC = () => {
 
     try {
       await Authentication.login(data);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      const error = err as Error;
+
+      toast.error(error.message);
     } finally {
       setInLoading(false);
     }

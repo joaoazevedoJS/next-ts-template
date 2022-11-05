@@ -6,7 +6,11 @@ import Head from "next/head";
 
 import { appWithTranslation } from "next-i18next";
 
-import { GlobalStyled } from "@/presentation/styles/GlobalStyled";
+import { ToastContainer } from "react-toastify";
+
+import { GlobalStyled } from "@/presentation/styles";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -20,6 +24,18 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
       <GlobalStyled />
 
       <Component {...pageProps} />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 };
