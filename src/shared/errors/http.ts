@@ -7,3 +7,11 @@ export class UnexpectedError extends Error {
     this.name = "Unexpected error";
   }
 }
+
+export class InvalidCredentialsError extends Error {
+  constructor() {
+    super(i18n?.t("errors:invalid_credentials"));
+
+    this.name = "Invalid credentials";
+  }
+}

@@ -1,3 +1,4 @@
 {
-  "unexpected_error": "Algo de errado aconteceu. Tente novamente em breve."
+  "unexpected_error": "Algo de errado aconteceu. Tente novamente em breve.",
+  "invalid_credentials": "E-mail ou senha estão incorretos."
 }

@@ -2,7 +2,7 @@ import { FC, useCallback, useMemo, useState } from "react";
 
 import { useTranslation } from "next-i18next";
 
-import { HttpProvider } from "@/providers/http";
+import { Authentication } from "@/data";
 
 import { InitialValues, ValidationSchema } from "./factory";
 
@@ -17,22 +17,21 @@ export const HomeFormExample: FC = () => {
 
   const initialValues = useMemo(() => InitialValues(), []);
 
-  const handleLoading = useCallback((data: IFormValues) => {
-    console.log(data);
-
-    HttpProvider.post({
-      url: "/posts",
-      body: data,
-    });
-
+  const handleLoading = useCallback(async (data: IFormValues) => {
     setInLoading(true);
 
-    setTimeout(() => setInLoading(false), 2000);
+    try {
+      await Authentication.login(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setInLoading(false);
+    }
   }, []);
 
   return (
     <Form initialValues={initialValues} onSubmit={handleLoading} validationSchema={ValidationSchema}>
-      <Form.Input type="text" name="name" />
+      <Form.Input type="text" name="email" />
 
       <Form.Input type="password" name="password" />
 

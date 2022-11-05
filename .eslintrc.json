@@ -23,6 +23,16 @@
     "prettier",
     "@typescript-eslint"
   ],
+  "overrides": [
+    {
+      "files": [
+        "**/shared/errors/*.ts"
+      ],
+      "rules": {
+        "max-classes-per-file": "off"
+      }
+    }
+  ],
   "rules": {
     "camelcase": "off",
     "class-methods-use-this": "off",
