@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { variables } from "@/presentation/styles/variables";
+import { variables } from "@/presentation/styles";
 
 export const Button = styled.button`
   display: flex;
@@ -9,7 +9,7 @@ export const Button = styled.button`
   width: 100%;
 
   background: transparent;
-  border: 0.0625rem solid ${variables.colors.dark_400};
+  border: 0.0625rem solid ${variables.colors.dark[400]};
   border-radius: 0.25rem;
   padding: 0.25rem 2rem;
 `;

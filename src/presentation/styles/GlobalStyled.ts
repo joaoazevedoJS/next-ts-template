@@ -10,7 +10,7 @@ export const GlobalStyled = createGlobalStyle`
   }
 
   body {
-    background: ${variables.colors.dark_0};
+    background: ${variables.colors.dark[0]};
   }
 
   button {
